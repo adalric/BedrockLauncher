@@ -53,11 +53,11 @@ namespace BedrockLauncher.Handlers
                 StartTask();
                 MainDataModel.Default.ProgressBarState.SetProgressBarState(LauncherState.isLaunching);
 
-                var pkg = await AppDiagnosticInfo.RequestInfoForPackageAsync(Constants.GetPackageFamily(v.Type));
-                AppActivationResult activationResult = null;
-                if (pkg.Count > 0) activationResult = await pkg[0].LaunchAsync();
+                //var pkg = await AppDiagnosticInfo.RequestInfoForPackageAsync(Constants.GetPackageFamily(v.Type));
+                //AppActivationResult activationResult = null;
+                //if (pkg.Count > 0) activationResult = await pkg[0].LaunchAsync();
                 Trace.WriteLine("App launch finished!");
-                if (KeepLauncherOpen && activationResult != null) await UpdatePackageHandle(activationResult);
+                //if (KeepLauncherOpen && activationResult != null) await UpdatePackageHandle(activationResult);
                 if (KeepLauncherOpen == false) await Application.Current.Dispatcher.InvokeAsync(() => Application.Current.MainWindow.Close());
             }
             catch (PackageManagerException e)
